@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS Werbe-Management</title>
+    <meta name="description" content="Erstelle professionelle Werbungen und Werbebilder mit JARVIS. Entdecke meinen TikTok Account für Live-Streaming und Content-Ideen.">
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome 6 CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+VU/h/PK70gwP6mfS2t1D/aQvSjUVYGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --dark-bg-color: #1a1a1a;
+            --dark-section-bg: #222222;
+            --dark-card-bg: #2e2e2e;
+            --text-color-light: #f8f9fa;
+            --text-color-muted: #adb5bd;
+            --border-color: #3a3a3a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* A modern font choice */
+            background-color: var(--dark-bg-color);
+            color: var(--text-color-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-color-light);
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--text-color-light);
+            text-decoration: underline;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: all 0.3s ease;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #5558d1; /* Slightly darker primary */
+            border-color: #5558d1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline-light {
+            color: var(--text-color-light);
+            border-color: var(--text-color-muted);
+            transition: all 0.3s ease;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+        }
+
+        .btn-outline-light:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            background-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            background-color: rgba(26, 26, 26, 0.9); /* Semi-transparent dark background */
+            backdrop-filter: blur(5px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar-brand {
+            color: var(--text-color-light) !important;
+            font-weight: 700;
+            font-size: 1.7rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            color: var(--text-color-muted) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(135deg, var(--dark-bg-color) 0%, #0e0e0e 100%);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            color: var(--text-color-muted);
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            animation: fadeInUp 1s ease-out 0.3s;
+        }
+
+        #hero .hero-buttons .btn {
+            margin: 0.5rem;
+            animation: fadeInUp 1s ease-out 0.6s;
+        }
+
+        /* Features/Services Section */
+        #features {
+            background-color: var(--dark-section-bg);
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .feature-card {
+            background-color: var(--dark-card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover i {
+            transform: rotateY(360deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-color-muted);
+        }
+
+        /* About Section */
+        #about {
+            padding: 80px 0;
+            background-color: var(--dark-bg-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        #about img {
+            border-radius: 1rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        #about img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--dark-section-bg);
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-control {
+            background-color: var(--dark-card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color-light);
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus {
+            background-color: var(--dark-card-bg);
+            border-color: var(--primary-color);
+            color: var(--text-color-light);
+            box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-color-muted);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg-color);
+            color: var(--text-color-muted);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer .social-icons a {
+            color: var(--text-color-muted);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Utility classes for animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            #hero p {
+                font-size: 1rem;
+            }
+            .feature-card {
+                margin-bottom: 1.5rem;
+            }
+            #about .col-md-6:first-child {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">JARVIS Werbe-Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Start</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Über Uns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontakt</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary d-none d-lg-block" href="https://www.tiktok.com/@yourtiktokaccount" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-tiktok me-2"></i> TikTok
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>JARVIS: Ihr Partner für professionelles Werbe-Management</h1>
+                        <p class="lead">
+                            Erstellen Sie mühelos überzeugende Werbungen und beeindruckende Werbebilder mit JARVIS. Entdecken Sie zudem meinen TikTok Account für spannende Live-Streams und frische Content-Ideen, die Ihre Marke zum Strahlen bringen.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#features" class="btn btn-primary btn-lg">Unsere Services entdecken</a>
+                            <a href="https://www.tiktok.com/@yourtiktokaccount" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-lg">
+                                <i class="fa-brands fa-tiktok me-2"></i> Zum TikTok Account
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features/Services Section -->
+        <section id="features" class="py-5 animate-on-scroll">
+            <div class="container">
+                <h2 class="text-center mb-5">Was JARVIS für Sie tun kann</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card animate-on-scroll">
+                            <i class="fa-solid fa-ad"></i>
+                            <h3>Professionelle Werbekampagnen</h3>
+                            <p>Entwicklung und Umsetzung maßgeschneiderter Werbekampagnen für maximale Reichweite und Wirkung.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card animate-on-scroll">
+                            <i class="fa-solid fa-image"></i>
+                            <h3>Beeindruckende Werbebilder</h3>
+                            <p>Erstellung visueller Inhalte, die Ihre Produkte hervorheben und Ihre Zielgruppe ansprechen.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card animate-on-scroll">
+                            <i class="fa-brands fa-tiktok"></i>
+                            <h3>TikTok Live-Streaming & Content</h3>
+                            <p>Strategien für erfolgreiches TikTok Live-Streaming und innovative Content-Ideen, die viral gehen.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card animate-on-scroll">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <h3>Kreative Content-Ideen</h3>
+                            <p>Entwicklung frischer und einzigartiger Content-Strategien, die Ihre Marke relevant halten.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card animate-on-scroll">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <h3>Performance-Analyse</h3>
+                            <p>Detaillierte Analyse Ihrer Kampagnen zur Optimierung und Maximierung des ROIs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card animate-on-scroll">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            <h3>Social Media Beratung</h3>
+                            <p>Expertenrat für Ihre Social Media Präsenz, um Ihre Community effektiv aufzubauen und zu engagieren.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-5 animate-on-scroll">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <img src="https://via.placeholder.com/600x400/1a1a1a/6366f1?text=About+JARVIS+Image" class="img-fluid" alt="Über JARVIS">
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="mb-4">Wer ist JARVIS?</h2>
+                        <p class="text-color-muted">
+                            JARVIS ist mehr als nur ein Name – es steht für ein innovatives Werbe-Management, das darauf abzielt, Unternehmen und Kreativen zu helfen, ihre Botschaft effektiv zu kommunizieren. Mit einem tiefen Verständnis für digitale Marketingtrends und einem Auge für Ästhetik, bieten wir umfassende Lösungen von der Konzeption bis zur Ausführung.
+                        </p>
+                        <p class="text-color-muted">
+                            Mein Ziel ist es, Ihnen die Werkzeuge und Strategien an die Hand zu geben, die Sie benötigen, um in der digitalen Welt erfolgreich zu sein. Egal, ob es um die Erstellung von fesselnden Werbebildern, das Management von Kampagnen oder die Generierung von viralen TikTok-Inhalten geht – JARVIS ist Ihr verlässlicher Partner.
+                        </p>
+                        <a href="#contact" class="btn btn-primary mt-3">Kontaktieren Sie uns</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-5 animate-on-scroll">
+            <div class="container">
+                <h2 class="text-center mb-5">Nehmen Sie Kontakt auf</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <p class="text-center text-color-muted mb-4">
+                            Haben Sie Fragen oder möchten Sie ein Projekt besprechen? Füllen Sie das Formular aus, und ich melde mich so schnell wie möglich bei Ihnen!
+                        </p>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label visually-hidden">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Ihr Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label visually-hidden">E-Mail</label>
+                                <input type="email" class="form-control" id="email" placeholder="Ihre E-Mail-Adresse" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label visually-hidden">Betreff</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Betreff" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label visually-hidden">Nachricht</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Ihre Nachricht" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Nachricht senden</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="animate-on-scroll">
+        <div class="container">
+            <div class="social-icons mb-3">
+                <a href="https://www.tiktok.com/@yourtiktokaccount" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2024 JARVIS Werbe-Management. Alle Rechte vorbehalten.</p>
+            <p>Made with <i class="fa-solid fa-heart" style="color: var(--primary-color);"></i> by JARVIS</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target); // Stop observing once in view
+                }
+            });
+        }, {
+            threshold: 0.2, // Trigger when 20% of the element is visible
+            rootMargin: '0px 0px -50px 0px' // Adjust for earlier/later trigger
+        });
+
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
